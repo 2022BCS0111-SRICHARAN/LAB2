@@ -5,7 +5,7 @@ import joblib
 
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import Lasso
 from sklearn.metrics import mean_squared_error, r2_score
 
 # Create output directory
@@ -28,8 +28,8 @@ scaler = StandardScaler()
 X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
 
-# Model (CHANGE THIS FOR EXPERIMENTS)
-model = LinearRegression()
+# Model 
+model = Lasso(alpha=0.1)
 
 # Train model
 model.fit(X_train, y_train)
